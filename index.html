@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời  20/10 - 9C2</title>
+    <!-- Tải Tailwind CSS để hỗ trợ layout và styling nhanh chóng -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tải Google Fonts: Dancing Script cho tiêu đề bay bổng, Inter cho chữ thông thường -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ffe6f2 0%, #ffcce6 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3, .title-font {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Styling cho các thẻ Card với hiệu ứng Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 192, 203, 0.5);
+            box-shadow: 0 4px 6px rgba(255, 105, 180, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(255, 105, 180, 0.2);
+        }
+
+        /* Container chứa hoa rơi */
+        #flower-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none; /* Không cản trở việc click vào nội dung */
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Animation cho hoa rơi */
+        .flower {
+            position: absolute;
+            top: -10%;
+            font-size: 1.5rem;
+            user-select: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* Đảm bảo nội dung nằm trên lớp hoa */
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #d53369, #cbad6d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <!-- Nơi chứa hiệu ứng hoa rơi bằng JS -->
+    <div id="flower-container"></div>
+
+    <div class="content-wrapper max-w-6xl mx-auto px-4 py-12">
+        
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h2 class="text-2xl md:text-3xl text-pink-600 font-semibold mb-2">Trường THCS Hưng Phú - lớp 9C2</h2>
+            <h1 class="text-5xl md:text-7xl font-bold text-pink-500 title-font drop-shadow-sm mb-4">
+                Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10
+            </h1>
+            <p class="text-lg md:text-xl text-pink-700 italic">Gửi ngàn đóa hoa và những lời chúc tốt đẹp nhất!</p>
+            <div class="flex justify-center mt-6 gap-2 text-3xl">
+                🌸 🌺 🌷 🌹 🌸
+            </div>
+        </header>
+
+        <!-- Phần dành cho các Cô giáo -->
+        <section class="mb-16">
+            <div class="flex flex-col md:flex-row gap-8 justify-center">
+                <!-- Cô Hà (GVCN) -->
+                <div class="glass-card rounded-2xl p-8 flex-1 border-t-4 border-t-pink-500 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 text-6xl opacity-20">👩‍🏫</div>
+                    <h3 class="text-4xl text-pink-600 mb-4">Gửi Cô Hà kính yêu của em :>>></h3>
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        Nhân ngày 20/10, tập thể lớp 9C2 kính chúc cô Hà - người mẹ hiền thứ hai của chúng em luôn xinh đẹp, tươi trẻ, dồi dào sức khỏe và luôn ngập tràn niềm vui. Cảm ơn cô đã luôn yêu thương, bao dung và tận tình dìu dắt chúng em nên người! ❤️
+                    </p>
+                </div>
+
+                <!-- Các cô giáo bộ môn -->
+                <div class="glass-card rounded-2xl p-8 flex-1 border-t-4 border-t-rose-400 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 text-6xl opacity-20">💐</div>
+                    <h3 class="text-4xl text-rose-500 mb-4">Gửi Các Cô giáo bộ môn</h3>
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        Kính chúc các cô giáo bộ môn của Trường THCS Hưng Phú một ngày lễ 20/10 thật nhiều niềm vui, hạnh phúc. Chúc các cô luôn giữ mãi ngọn lửa đam mê và gặt hái được nhiều thành công vang dội trong sự nghiệp trồng người cao quý! 🌸
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần dành cho các bạn Nữ trong lớp -->
+        <section>
+            <h2 class="text-4xl md:text-5xl text-center text-pink-600 mb-10 title-font">
+                Những Đóa Hoa Xinh Đẹp Của Lớp 9C2
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 1. Phương Linh -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🌷</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Phương Linh</h4>
+                    <p class="text-sm text-gray-600">Chúc Phương Linh 20/10 vui vẻ, mong cậu ngày càng xinh xắn và luôn giữ vững phong độ học tập đỉnh cao nhé!</p>
+                </div>
+
+                <!-- 2. Khánh Linh -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🌹</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Khánh Linh</h4>
+                    <p class="text-sm text-gray-600">Chúc Khánh Linh luôn rạng rỡ như hoa, mong cậu làm bài kiểm tra nào cũng đạt điểm 10 chót vót!</p>
+                </div>
+
+                <!-- 3. Bảo An -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🌺</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Bảo An</h4>
+                    <p class="text-sm text-gray-600">Chúc Bảo An một ngày lễ ngọt ngào, chúc cậu học hành tấn tới và sớm đạt được những mục tiêu đã đề ra.</p>
+                </div>
+
+                <!-- 4. Hương Giang -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🌸</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Hương Giang</h4>
+                    <p class="text-sm text-gray-600">Chúc Hương Giang luôn tươi cười, mong cậu có trí nhớ siêu phàm để học từ vựng và công thức vèo vèo nhé!</p>
+                </div>
+
+                <!-- 5. Huyền Diệu -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🌻</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Huyền Diệu</h4>
+                    <p class="text-sm text-gray-600">Chúc Huyền Diệu 20/10 ngập tràn quà tặng, chúc cậu thông minh xuất chúng và giải toán nhanh như chớp.</p>
+                </div>
+
+                <!-- 6. Phạm Quỳnh Anh -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🌼</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Phạm Quỳnh Anh</h4>
+                    <p class="text-sm text-gray-600">Chúc Phạm Quỳnh Anh luôn duyên dáng, mong cậu học giỏi toàn diện và đỗ đạt vào trường cấp 3 mơ ước!</p>
+                </div>
+
+                <!-- 7. Vũ Quỳnh Anh -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">💐</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Vũ Quỳnh Anh</h4>
+                    <p class="text-sm text-gray-600">Chúc Vũ Quỳnh Anh ngày càng đáng yêu, chúc cậu viết văn bao hay và luôn là ngôi sao sáng của lớp.</p>
+                </div>
+
+                <!-- 8. Bích -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">💮</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Bích</h4>
+                    <p class="text-sm text-gray-600">Chúc Bích 20/10 hạnh phúc, mong cậu luôn chăm chỉ và gặt hái được nhiều điểm 10 trong học kỳ này nhé.</p>
+                </div>
+
+                <!-- 9. Thúy -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🏵️</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Thúy</h4>
+                    <p class="text-sm text-gray-600">Chúc Thúy luôn năng động, tự tin và chúc cậu chinh phục thành công mọi bài tập hóc búa nhất.</p>
+                </div>
+
+                <!-- 10. Tú Anh -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🪷</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Tú Anh</h4>
+                    <p class="text-sm text-gray-600">Chúc Tú Anh một ngày thật đặc biệt, chúc cậu não bộ rủng rỉnh kiến thức và thi đâu trúng đó!</p>
+                </div>
+
+                <!-- 11. Linh Chi -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🍀</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Linh Chi</h4>
+                    <p class="text-sm text-gray-600">Chúc Linh Chi học hành nhàn tênh mà kết quả vẫn xuất sắc, chúc cậu ngày càng xinh đẹp và rạng rỡ.</p>
+                </div>
+
+                <!-- 12. Yến -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🌷</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Yến</h4>
+                    <p class="text-sm text-gray-600">Chúc Yến 20/10 vui tươi, mong cậu học tiếng Anh siêu phàm và luôn tràn đầy năng lượng tích cực.</p>
+                </div>
+
+                <!-- 13. Ngoan -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🌹</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Ngoan</h4>
+                    <p class="text-sm text-gray-600">Chúc Ngoan luôn ngoan hiền, chúc cậu học giỏi đúng như tên gọi và ẵm trọn nhiều phần thưởng nhé!</p>
+                </div>
+
+                <!-- 14. Minh Anh -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🌺</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Minh Anh</h4>
+                    <p class="text-sm text-gray-600">Chúc Minh Anh 20/10 ngập tràn tiếng cười, chúc cậu tư duy sắc bén và luôn đứng top đầu của lớp.</p>
+                </div>
+
+                <!-- 15. Thu -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🌸</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Thu</h4>
+                    <p class="text-sm text-gray-600">Chúc Thu như mùa thu tỏa nắng, mong cậu học bài mau thuộc và luôn là con ngoan trò giỏi.</p>
+                </div>
+
+                <!-- 16. Trâm -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-3">🌻</div>
+                    <h4 class="text-xl font-bold text-pink-700 mb-2">Trâm</h4>
+                    <p class="text-sm text-gray-600">Chúc Trâm luôn điệu đà, xinh xắn, chúc cậu thi cử thuận buồm xuôi gió và đạt kết quả cao nhất!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-20 pt-8 border-t border-pink-300 text-center">
+            <p class="text-pink-800 font-medium">© 2026 nguyentrung_notsafe. All rights reserved</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Mảng chứa các icon hoa để tạo hiệu ứng rơi
+        const flowers = ['🌸', '🌺', '🌷', '🌹', '💮', '🏵️', '🌼'];
+        const container = document.getElementById('flower-container');
+
+        // Hàm tạo một bông hoa rơi
+        function createFlower() {
+            const flowerEl = document.createElement('div');
+            flowerEl.classList.add('flower');
+            
+            // Chọn ngẫu nhiên loại hoa
+            flowerEl.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+            
+            // Vị trí xuất phát ngẫu nhiên theo chiều ngang
+            flowerEl.style.left = Math.random() * 100 + 'vw';
+            
+            // Tốc độ rơi ngẫu nhiên (từ 5s đến 12s)
+            const duration = Math.random() * 7 + 5;
+            flowerEl.style.animationDuration = duration + 's';
+            
+            // Kích thước hoa ngẫu nhiên
+            flowerEl.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            
+            // Thêm vào container
+            container.appendChild(flowerEl);
+            
+            // Xóa phần tử sau khi rơi xong để tránh rác DOM
+            setTimeout(() => {
+                flowerEl.remove();
+            }, duration * 1000);
+        }
+
+        // Tạo hoa liên tục mỗi 300ms
+        setInterval(createFlower, 300);
+        
+        // Tạo sẵn một vài bông hoa ngay khi load trang
+        for(let i=0; i<15; i++) {
+            setTimeout(createFlower, Math.random() * 2000);
+        }
+    </script>
+</body>
+</html>
